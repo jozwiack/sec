@@ -1,7 +1,7 @@
 Summary of the issue
 --------------------
 
-Attack can be performed by sending crafted UDP packets directed to _sod_ daemon
+Attack can be performed by sending crafted UDP packets directed to *sod* daemon
 listening on particular interface and port of BIG-IP LTM VE instance.
 
 In well designed networks where Network Failover is configured to run on
@@ -11,16 +11,16 @@ have direct access to particular network.
 Attack requires attacker to acquire basic information about network design in
 order to be successful. It seems plausible that all those information can be
 bruteforced in case no knowledge of attacked network is assumed. Additionally
-some values are suggested as default in documentation and configuration (_sod_
+some values are suggested as default in documentation and configuration (*sod*
 ports for unicast and multicast mode, IP for multicast mode).
 
 Due to the fact that no two-way communication is required for attack to be
 successful attacker may spoof source IP when attacking service in unicast mode.
 This may indicate that there's no requirement for attacker to have direct access
-to network in which _sod_ service is running. This however heavily depends on
+to network in which *sod* service is running. This however heavily depends on
 other network security measures that may be implemented.
 
-It should be also noted that vendor suggests running Network Failover/_sod_
+It should be also noted that vendor suggests running Network Failover/*sod*
 service on dedicated, isolated VLAN.
 
 Technical details
@@ -28,12 +28,12 @@ Technical details
 
 **Unicast mode**
 
-It has been observed that it's possible to crash/cause restart of _sod_ service by
+It has been observed that it's possible to crash/cause restart of *sod* service by
 sending crafted UDP packets. Packets need to conform to following rules:
 
 * source IP should be set to valid peer self IP address
 * destination IP should be set to self IP of attacked device
-* destination UDP port should be set to port on which _sod_ service is listening
+* destination UDP port should be set to port on which *sod* service is listening
 * payload of UDP should contain single byte value - meaningful results have been
 achieved using "\x01" and "\0x41"
 
@@ -50,7 +50,7 @@ source IP address can be easily spoofed. Referenced Ruby script (f5-soddos.rb)
 allows for easy spoofing of IP source address and doesn't require reconfiguring
 of network adapter.
 
-When above command is run _sod_ deamon will start crashing/restarting giving
+When above command is run *sod* deamon will start crashing/restarting giving
 similar console output on attacked machine:
 
 ```
@@ -77,7 +77,7 @@ Most of the rules are not changed for multicast mode. The main difference for
 attack to be successful is that in multicast mode source IP of crafted packets
 may be random (doesn't need to match self IP of peer device).
 
-In order to perform attack in network where _sod_ is running in multicast mode
+In order to perform attack in network where *sod* is running in multicast mode
 following command can be used:
 
 ```shell
@@ -97,5 +97,5 @@ site: Version 10.1.0 Build 3341.1084
 
 It can be assumed that earlier versions may be affected as well.
 
-According to vendor _sod_ daemon present on version 11.1 and above is patched
-and not affected by presented issue.
+According to vendor *sod* daemon from version 11.1 and above is patched and not
+affected by presented issue.
