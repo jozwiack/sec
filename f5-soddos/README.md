@@ -11,8 +11,8 @@ have direct access to particular network.
 Attack requires attacker to acquire basic information about network design in
 order to be successful. It seems plausible that all those information can be
 bruteforced in case no knowledge of attacked network is assumed. Additionally
-some values are suggested as default in documentation and configuration (*sod*
-ports for unicast and multicast mode, IP for multicast mode).
+some values are suggested as default in documentation and configuration (ports
+for unicast and multicast mode, IP for multicast mode).
 
 Due to the fact that no two-way communication is required for attack to be
 successful attacker may spoof source IP when attacking service in unicast mode.
@@ -20,7 +20,7 @@ This may indicate that there's no requirement for attacker to have direct access
 to network in which *sod* service is running. This however heavily depends on
 other network security measures that may be implemented.
 
-It should be also noted that vendor suggests running Network Failover/*sod*
+It should be also noted that vendor suggests running Network Failover / *sod*
 service on dedicated, isolated VLAN.
 
 Technical details
