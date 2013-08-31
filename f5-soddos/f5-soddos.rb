@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
-
+#
 # PoC script for crashing sod daemon on F5 BIG-IP LTM VE 10.1.0
-
 # Usage examples:
 # unicast:   ./f5-soddos.rb eth1 192.168.1.21 192.168.1.20 1026
 # multicast: ./f5-soddos.rb eth1 192.168.1.1 224.0.0.245 62960
+#
 
 require 'rubygems'
 require 'racket'
